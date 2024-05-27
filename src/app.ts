@@ -4,6 +4,7 @@ import config from './config';
 import log4js, { Configuration } from 'log4js';
 import mongoose, { ConnectOptions } from 'mongoose';
 import Consul, { ConsulOptions } from 'consul';
+import errorHandler from "./middlewares/errorHandler";
 
 type EnvType = 'dev' | 'prod';
 
@@ -51,6 +52,7 @@ export default async () => {
   });
 
   app.use('/', routers);
+  app.use(errorHandler);
 
   const port = await getConsulValue(`${env}/port`) as number;
   const address = await getConsulValue(`${env}/address`) as string;
