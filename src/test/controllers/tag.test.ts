@@ -48,7 +48,7 @@ describe('Tag controller', () => {
 
     chai.request(app)
       .post('/')
-      .send(tag) // Уберіть зайвий рівень об'єкта `body`
+      .send(tag)
       .end((err, res) => {
         if (err) {
           return done(err);
@@ -101,7 +101,7 @@ describe('Tag controller', () => {
     sandbox.stub<any, any>(tagService, 'countTag').resolves(mockResult);
 
     chai.request(app)
-      .post('/_counts') // Adjust the endpoint as necessary
+      .post('/_counts')
       .send({ postIds })
       .end((err, res) => {
         if (err) return done(err);
