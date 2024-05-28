@@ -98,4 +98,3 @@ const toPostIdAndCountedTagRecord = (parsedPostIds: number[], result: any[]): Re
 
   return postIdAndCountedTag;
 };
-
